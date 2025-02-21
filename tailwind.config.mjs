@@ -10,7 +10,19 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        headtext: "var(--head-text-color)",
+        Button: "#FFC64C",
+        hoverButton: "#FFD478",
       },
+      container: {
+        center: true,
+        padding: '1rem',
+      },
+      fontFamily: {
+        primary: ["var(--font-quicksand)"],
+        heading: ["var(--font-palanquin)"],
+        secondary: ["var(--font-palatino)"],
+      }
     },
   },
   plugins: [],
