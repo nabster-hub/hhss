@@ -20,3 +20,29 @@ body {
   background: var(--background);
   font-family: Quicksand, Palanquin, pl, serif;
 }
+
+.animation{
+  > path {
+    opacity: 0;
+    animation: fadeInOut 1.5s linear infinite;
+  }
+   > path:nth-child(1) {
+    animation-delay: 1s;
+  }
+   > path:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+   > path:nth-child(3) {
+    animation-delay: 0s;
+  }
+
+
+}
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}

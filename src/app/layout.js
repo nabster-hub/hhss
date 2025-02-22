@@ -5,13 +5,19 @@ import localFont from "next/font/local";
 import clsx from "clsx";
 import StoryblokProvider from "@/components/providers/StoryblokProvider";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-import pkg from "react";
 import Header from "@/components/sections/hards/Header";
 import Footer from "@/components/sections/hards/Footer";
+import Hero from "@/components/sections/StoryBlok/Hero";
+import Page from "@/components/sections/StoryBlok/Page";
 
+const components = {
+    page: Page,
+    hero: Hero,
+}
 storyblokInit({
     accessToken: process.env.STORYBLOK_API_TOKEN,
     use: [apiPlugin],
+    components,
 });
 const quicksand = Quicksand({
     subsets: ["latin"],
@@ -44,10 +50,11 @@ export default async function RootLayout({children}) {
      })
     //console.log(data);
     return (
-        <html lang="en">
         <StoryblokProvider>
+        <html lang="en">
+
         <body
-            className={clsx(quicksand.variable, palanquin.variable, pl.variable, "h-dvh")}>
+            className={clsx(quicksand.variable, palanquin.variable, pl.variable)}>
         <Header data={data.story?.content?.headerLinks} />
         {children}
         <Footer data={{
@@ -55,7 +62,7 @@ export default async function RootLayout({children}) {
             links: data.story?.content?.footerLinks
         }} />
         </body>
-        </StoryblokProvider>
         </html>
+        </StoryblokProvider>
     );
 }
