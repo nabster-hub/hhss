@@ -17,7 +17,7 @@ export default {
       container: {
         center: true,
         padding: {
-          DEFAULT: '0.75rem',
+          DEFAULT: '1rem',
           md:'1rem',
         },
       },
@@ -26,6 +26,10 @@ export default {
         heading: ["var(--font-palanquin)"],
         secondary: ["var(--font-palatino)"],
       },
+      screens:{
+        xl: "1280px",
+        "2xl": "1280px",
+      }
     },
 
   },

@@ -46,3 +46,29 @@ body {
         opacity: 1;
     }
 }
+
+.richText{
+    & > p{
+        margin-bottom: 20px;
+    }
+    ul{
+        list-style: none;
+        li{
+            &::before{
+                content: '•';
+                font-size: 1.2em;
+                position: absolute;
+                left: -15px;
+                top: 0px;
+                color: black;
+            }
+            position: relative;
+            margin-bottom: 24px;
+            p{
+                &:nth-child(2){
+                    margin-top: 0.3rem;
+                }
+            }
+        }
+    }
+}

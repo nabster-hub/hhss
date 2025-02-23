@@ -9,10 +9,12 @@ import Header from "@/components/sections/hards/Header";
 import Footer from "@/components/sections/hards/Footer";
 import Hero from "@/components/sections/StoryBlok/Hero";
 import Page from "@/components/sections/StoryBlok/Page";
+import TwoBlok from "@/components/sections/StoryBlok/TwoBlok";
 
 const components = {
     page: Page,
     hero: Hero,
+    twoBlok: TwoBlok,
 }
 storyblokInit({
     accessToken: process.env.STORYBLOK_API_TOKEN,
