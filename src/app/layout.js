@@ -10,11 +10,13 @@ import Footer from "@/components/sections/hards/Footer";
 import Hero from "@/components/sections/StoryBlok/Hero";
 import Page from "@/components/sections/StoryBlok/Page";
 import TwoBlok from "@/components/sections/StoryBlok/TwoBlok";
+import ThreeColumns from "@/components/sections/StoryBlok/ThreeColumns";
 
 const components = {
     page: Page,
     hero: Hero,
     twoBlok: TwoBlok,
+    threeColumns: ThreeColumns,
 }
 storyblokInit({
     accessToken: process.env.STORYBLOK_API_TOKEN,
@@ -68,3 +70,5 @@ export default async function RootLayout({children}) {
         </StoryblokProvider>
     );
 }
+
+
