@@ -1,8 +1,18 @@
 'use client'
-import React from 'react';
+import React, {useState} from 'react';
 import Link from "next/link";
+import Modal from "@/components/sections/ui/Modal";
 
 const Button = ({label, href, type, variant}) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
+    function openModal() {
+        setIsOpen(true);
+    }
 
     if(type === "footer")
         return (
@@ -13,7 +23,12 @@ const Button = ({label, href, type, variant}) => {
 
     if(type === "openForm")
         return (
-            <button className={"px-[36px] py-7 bg-Button rounded-full min-w-[147px] hover:bg-hoverButton hover:border hover:border-black transition-all ease-in text-base font-medium leading-7"} onClick={() => {console.log('click') }} >{label}</button>
+            <>
+                <button
+                    className={"px-[36px] py-7 bg-Button rounded-full min-w-[147px] hover:bg-hoverButton hover:border hover:border-black transition-all ease-in text-base font-medium leading-7"}
+                    onClick={openModal}>{label}</button>
+                <Modal closeModal={closeModal} isOpen={isOpen}/>
+            </>
         );
 
 };

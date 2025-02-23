@@ -11,12 +11,14 @@ import Hero from "@/components/sections/StoryBlok/Hero";
 import Page from "@/components/sections/StoryBlok/Page";
 import TwoBlok from "@/components/sections/StoryBlok/TwoBlok";
 import ThreeColumns from "@/components/sections/StoryBlok/ThreeColumns";
+import AboutFounder from "@/components/sections/StoryBlok/AboutFounder";
 
 const components = {
     page: Page,
     hero: Hero,
     twoBlok: TwoBlok,
     threeColumns: ThreeColumns,
+    aboutFounder: AboutFounder,
 }
 storyblokInit({
     accessToken: process.env.STORYBLOK_API_TOKEN,

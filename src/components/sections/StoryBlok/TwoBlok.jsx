@@ -67,7 +67,7 @@ const TwoBlok = ({blok}) => {
         <section id={blok.anchorLink}>
             <div className="container py-8 lg:py-[60px]">
                 <h2 className={"font-primary text-center lg:text-left font-medium text-[28px] lg:text-[32px] leading-10 mb-9"}>{blok.title}</h2>
-                <div className={clsx(blok.type === "half" && "flex flex-col lg:grid lg:grid-cols-2", blok.type === "therd" && "flex flex-col lg:flex-row", "mb-9")}>
+                <div className={clsx(blok.type === "half" && "flex flex-col lg:grid lg:grid-cols-2", blok.type === "therd" && "flex flex-col lg:flex-row", "mb-9 rounded-lg overflow-hidden")}>
                     {blok.block.map((block, index) => (
                         renderBlock(block, type(), index)
                     ))}
