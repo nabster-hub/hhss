@@ -102,13 +102,14 @@ export default function Modal({ isOpen, closeModal }) {
                                             Get Early Access
                                         </button>
                                         <div className="flex items-center space-x-2">
+                                            {errors.privacy && <span className="text-red-500 text-sm">You must agree to continue</span>}
                                             <input type="checkbox" id="privacy"
                                                    {...register("privacy", { required: true })}
-                                                   className="appearance-none w-5 h-5 border border-gray-300 checked:bg-yellow-500 checked:border-transparent focus:outline-none transition-all rounded-md"/>
+                                                   className="appearance-none w-5 h-5 border border-gray-300 rounded-md checked:bg-yellow-500 checked:border-transparent focus:outline-none transition-all relative checked:before:content-['✔'] checked:before:text-white checked:before:absolute checked:before:-top-1 checked:before:left-[2px]"/>
                                             <label htmlFor="privacy" className="font-heading font-medium text-sm lg:text-xl text-[#667085]">
                                                 You agree to our friendly privacy policy
                                             </label>
-                                            {errors.privacy && <span className="text-red-500 text-sm">You must agree to continue</span>}
+
                                         </div>
                                     </form>
                                 </div>
