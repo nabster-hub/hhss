@@ -107,7 +107,7 @@ export default function Modal({ isOpen, closeModal }) {
                                                    {...register("privacy", { required: true })}
                                                    className="appearance-none w-5 h-5 border border-gray-300 rounded-md checked:bg-yellow-500 checked:border-transparent focus:outline-none transition-all relative checked:before:content-['✔'] checked:before:text-white checked:before:absolute checked:before:-top-1 checked:before:left-[2px]"/>
                                             <label htmlFor="privacy" className="font-heading font-medium text-sm lg:text-xl text-[#667085]">
-                                                You agree to our friendly privacy policy
+                                                You agree to our friendly <a href={"/privacy-policy"} className={"underline"}>privacy policy</a>
                                             </label>
 
                                         </div>
