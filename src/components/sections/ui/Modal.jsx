@@ -76,16 +76,16 @@ export default function Modal({ isOpen, closeModal }) {
                                     </p>
                                     <form onSubmit={handleSubmit(onSubmit)}>
                                         <label htmlFor={"name"}
-                                               className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Name</label>
+                                               className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Name {errors.name && <span className="text-red-500 text-sm">Name is required</span>}</label>
                                         <input
                                             type="text"
                                             placeholder="Your name"
                                             {...register("name", { required: true })}
                                             className="w-full text-base lg:text-xl mb-6 p-3 border rounded-lg focus:outline-none focus:border-yellow-500 placeholder:font-heading placeholder:text-[#667085]"
                                         />
-                                        {errors.name && <span className="text-red-500 text-sm">Name is required</span>}
+
                                         <label htmlFor={"name"}
-                                               className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Email</label>
+                                               className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Email  {errors.email && <span className="text-red-500 text-sm">Valid email is required</span>}</label>
                                         <input
                                             type="email"
                                             placeholder="you@email.com"
@@ -95,7 +95,7 @@ export default function Modal({ isOpen, closeModal }) {
                                             })}
                                             className="w-full text-base lg:text-xl  mb-8 p-3 border rounded-lg focus:outline-none focus:border-yellow-500 placeholder:font-heading placeholder:text-[#667085]"
                                         />
-                                        {errors.email && <span className="text-red-500 text-sm">Valid email is required</span>}
+
                                         <button
                                             type="submit"
                                             className={"px-6 py-[18px] font-secondary mb-8 text-black text-xl font-medium bg-Button rounded-full w-full hover:bg-hoverButton hover:border hover:border-black transition-all ease-in  "}>
@@ -106,7 +106,7 @@ export default function Modal({ isOpen, closeModal }) {
                                                    {...register("privacy", { required: true })}
                                                    className="appearance-none w-5 h-5 border border-gray-300 checked:bg-yellow-500 checked:border-transparent focus:outline-none transition-all rounded-md"/>
                                             <label htmlFor="privacy" className="font-heading font-medium text-sm lg:text-xl text-[#667085]">
-                                                You agree to our friendly privacy policy.
+                                                You agree to our friendly privacy policy
                                             </label>
                                             {errors.privacy && <span className="text-red-500 text-sm">You must agree to continue</span>}
                                         </div>
