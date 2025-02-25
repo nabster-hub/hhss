@@ -46,6 +46,7 @@ const pl = localFont({
 })
 
 export const metadata = {
+    metadataBase: new URL('https://hhss.info'),
     title: "HHSS – Future of Health",
     description: "Discover HHSS, the world’s first decentralized AI healthcare system designed to keep you youthful and disease-free. Take full control of your health with personalized insights, continuous monitoring, and global access to top medical professionals. Join the future of healthcare today",
     alternates: {

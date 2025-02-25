@@ -2,21 +2,26 @@
 "use client";
 
 import { Dialog, Transition } from "@headlessui/react";
-import React, { Fragment } from "react";
+import React, {Fragment, useState} from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 export default function Modal({ isOpen, closeModal }) {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const [successMessage, setSuccessMessage] = useState("");
 
     const onSubmit = async (data) => {
         try{
             await axios.post("/api/lead", data);
-            closeModal();
+            setSuccessMessage("You're among the first to receive the white paper. Stay tuned!");
+            reset();
         } catch (error) {
             console.log(error);
         } finally {
-            closeModal();
+            // Закрываем сообщение через 3 секунды
+            setTimeout(() => {
+                closeModal();
+            }, 3000);
         }
     }
 
@@ -74,50 +79,56 @@ export default function Modal({ isOpen, closeModal }) {
                                         Get exclusive early access to the <strong className={"text-black"}>HHSS White
                                         Paper</strong>
                                     </p>
-                                    <form onSubmit={handleSubmit(onSubmit)}>
-                                        <label htmlFor={"name"}
-                                               className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Name {errors.name &&
-                                            <span className="text-red-500 text-sm">Name is required</span>}</label>
-                                        <input
-                                            type="text"
-                                            placeholder="Your name"
-                                            {...register("name", {required: true})}
-                                            className="w-full text-base lg:text-xl mb-6 p-3 border rounded-lg focus:outline-none focus:border-yellow-500 placeholder:font-heading placeholder:text-[#667085]"
-                                        />
-
-                                        <label htmlFor={"name"}
-                                               className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Email {errors.email &&
-                                            <span
-                                                className="text-red-500 text-sm">Valid email is required</span>}</label>
-                                        <input
-                                            type="email"
-                                            placeholder="you@email.com"
-                                            {...register("email", {
-                                                required: true,
-                                                pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/
-                                            })}
-                                            className="w-full text-base lg:text-xl  mb-8 p-3 border rounded-lg focus:outline-none focus:border-yellow-500 placeholder:font-heading placeholder:text-[#667085]"
-                                        />
-
-                                        <button
-                                            type="submit"
-                                            className={"px-6 py-[18px] font-secondary mb-8 text-black text-xl font-medium bg-Button rounded-full w-full hover:bg-hoverButton hover:border hover:border-black transition-all ease-in  "}>
-                                            Get Early Access
-                                        </button>
-                                        <div className="flex items-center space-x-2">
-                                            <input type="checkbox" id="privacy"
-                                                   {...register("privacy", {required: true})}
-                                                   className="appearance-none w-5 h-5 border border-gray-300 rounded-md checked:bg-yellow-500 checked:border-transparent focus:outline-none transition-all relative checked:before:content-['✔'] checked:before:text-white checked:before:absolute checked:before:-top-1 checked:before:left-[2px]"
-                                                   checked
+                                    {!successMessage ? (
+                                        <form onSubmit={handleSubmit(onSubmit)}>
+                                            <label htmlFor={"name"}
+                                                   className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Name {errors.name &&
+                                                <span className="text-red-500 text-sm">Name is required</span>}</label>
+                                            <input
+                                                type="text"
+                                                placeholder="Your name"
+                                                {...register("name", {required: true})}
+                                                className="w-full text-base lg:text-xl mb-6 p-3 border rounded-lg focus:outline-none focus:border-yellow-500 placeholder:font-heading placeholder:text-[#667085]"
                                             />
-                                            <label htmlFor="privacy"
-                                                   className="font-heading font-medium text-sm lg:text-xl text-[#667085]">
-                                                You agree to our <a href={"/privacy-policy"}
-                                                                             className={"underline"}>privacy policy</a>
-                                            </label>
-                                        </div>
-                                        <div className="h-4">{errors.privacy && <span className="text-red-500 text-sm">You must agree to continue</span>}</div>
-                                    </form>
+
+                                            <label htmlFor={"name"}
+                                                   className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Email {errors.email &&
+                                                <span
+                                                    className="text-red-500 text-sm">Valid email is required</span>}</label>
+                                            <input
+                                                type="email"
+                                                placeholder="you@email.com"
+                                                {...register("email", {
+                                                    required: true,
+                                                    pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$/
+                                                })}
+                                                className="w-full text-base lg:text-xl  mb-8 p-3 border rounded-lg focus:outline-none focus:border-yellow-500 placeholder:font-heading placeholder:text-[#667085]"
+                                            />
+
+                                            <button
+                                                type="submit"
+                                                className={"px-6 py-[18px] font-secondary mb-8 text-black text-xl font-medium bg-Button rounded-full w-full hover:bg-hoverButton hover:border hover:border-black transition-all ease-in  "}>
+                                                Get Early Access
+                                            </button>
+                                            <div className="flex items-center space-x-2">
+                                                <input type="checkbox" id="privacy"
+                                                       {...register("privacy", {required: true})}
+                                                       className="appearance-none w-5 h-5 border border-gray-300 rounded-md checked:bg-yellow-500 checked:border-transparent focus:outline-none transition-all relative checked:before:content-['✔'] checked:before:text-white checked:before:absolute checked:before:-top-1 checked:before:left-[2px]"
+                                                       checked
+                                                />
+                                                <label htmlFor="privacy"
+                                                       className="font-heading font-medium text-sm lg:text-xl text-[#667085]">
+                                                    You agree to our <a href={"/privacy-policy"}
+                                                                        className={"underline"}>privacy policy</a>
+                                                </label>
+                                            </div>
+                                            <div className="h-4">{errors.privacy && <span
+                                                className="text-red-500 text-sm">You must agree to continue</span>}</div>
+                                        </form>
+                                    ) : (
+                                        <p className="text-green-500 text-xl font-bold">{successMessage}</p>
+                                    )}
+
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>
