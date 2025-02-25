@@ -13,6 +13,7 @@ export async function POST(req) {
     } = body;
 
     try{
+        console.error("passwd", process.env.SMTP_PASS);
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: process.env.SMTP_PORT,
