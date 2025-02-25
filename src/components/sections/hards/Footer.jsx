@@ -3,9 +3,9 @@ import {render} from "storyblok-rich-text-react-renderer";
 import Button from "@/components/sections/ui/Button";
 import Link from "next/link";
 import Image from "next/image";
+import Social from "@/components/sections/ui/Social";
 
 const Footer = ({data}) => {
-    //console.log(data);
     return (
         <footer className={"min-h-[400px] relative overflow-hidden"}>
             <div className="container py-16 relative z-10">
@@ -16,7 +16,7 @@ const Footer = ({data}) => {
                         </div>
                         <div className={"flex justify-center gap-2 md:gap-8"}>
                             {data.links.map((link, _uid) =>(
-                                 <Button type={"footer"} key={_uid} href={link.href}  label={link.label} />
+                                 <Social type={link.type} key={_uid} href={link.link}  label={link.label} />
                             ))}
 
                         </div>

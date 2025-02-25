@@ -4,6 +4,7 @@ import {StoryblokStory} from "@storyblok/react/rsc";
 import {StoryblokComponent} from "@storyblok/react";
 
 
+export const revalidate = 180;
 
 export default async function Home() {
   const { data } = await fetchData("home", {
