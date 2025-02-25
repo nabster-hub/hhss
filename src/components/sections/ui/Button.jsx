@@ -25,7 +25,7 @@ const Button = ({label, href, type, variant}) => {
         return (
             <>
                 <button
-                    className={"px-[36px] py-7 bg-Button rounded-full min-w-[147px] hover:bg-hoverButton hover:border hover:border-black transition-all ease-in text-base font-medium leading-7"}
+                    className={"px-[36px] py-7 bg-Button rounded-full min-w-[147px] hover:bg-hoverButton hover:border hover:border-black transition-all ease-in text-base lg:text-[24px] font-medium leading-7"}
                     onClick={openModal}>{label}</button>
                 <Modal closeModal={closeModal} isOpen={isOpen}/>
             </>

@@ -18,7 +18,7 @@
 body {
   color: black;
   background: var(--background);
-  font-family: Quicksand, Palanquin, pl, serif;
+  font-family: Palanquin, Quicksand, pl, serif;
 }
 
 .animation{
@@ -79,7 +79,7 @@ body {
 
     }
     & > p{
-        margin-bottom: 20px;
+        margin-bottom: 16px;
 
         &:last-child{
             margin-bottom: 0;
@@ -97,7 +97,7 @@ body {
                 color: black;
             }
             position: relative;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             p{
                 &:nth-child(2){
                     margin-top: 0.3rem;

@@ -5,9 +5,9 @@ const Hero = ({blok}) => {
     return (
         <section id={"hero"} className={"relative overflow-hidden"}>
             <div className={"container py-8 lg:py-20 relative z-10"}>
-                <div className={"flex flex-col items-center w-full max-w-[358px] sm:max-w-[500px] mx-auto gap-16 mb-8"}>
-                    <h1 className={"block font-primary text-[36px] leading-[45px] text-center font-bold"}>{blok.title}</h1>
-                    <span className={"block font-secondary text-base leading-5 text-center text-black/60"}>{blok.description}</span>
+                <div className={"flex flex-col items-center w-full max-w-[500px] lg:max-w-[768px] mx-auto gap-8 mb-8 lg:mb-[60px] px-4 lg:px-0"}>
+                    <h1 className={"block font-primary text-[36px] lg:text-[60px] leading-[45px] lg:leading-[75px] text-center font-bold"}>{blok.title}</h1>
+                    <span className={"block font-heading text-base lg:text-xl leading-5 lg:leading-9 text-center text-black/60"}>{blok.description}</span>
                 </div>
                 <div className={"flex flex-col items-center gap-12"}>
                     <Button href={blok.button[0].href} type={blok.button[0].type} label={blok.button[0].label} />
