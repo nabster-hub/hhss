@@ -76,16 +76,19 @@ export default function Modal({ isOpen, closeModal }) {
                                     </p>
                                     <form onSubmit={handleSubmit(onSubmit)}>
                                         <label htmlFor={"name"}
-                                               className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Name {errors.name && <span className="text-red-500 text-sm">Name is required</span>}</label>
+                                               className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Name {errors.name &&
+                                            <span className="text-red-500 text-sm">Name is required</span>}</label>
                                         <input
                                             type="text"
                                             placeholder="Your name"
-                                            {...register("name", { required: true })}
+                                            {...register("name", {required: true})}
                                             className="w-full text-base lg:text-xl mb-6 p-3 border rounded-lg focus:outline-none focus:border-yellow-500 placeholder:font-heading placeholder:text-[#667085]"
                                         />
 
                                         <label htmlFor={"name"}
-                                               className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Email  {errors.email && <span className="text-red-500 text-sm">Valid email is required</span>}</label>
+                                               className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Email {errors.email &&
+                                            <span
+                                                className="text-red-500 text-sm">Valid email is required</span>}</label>
                                         <input
                                             type="email"
                                             placeholder="you@email.com"
@@ -102,15 +105,18 @@ export default function Modal({ isOpen, closeModal }) {
                                             Get Early Access
                                         </button>
                                         <div className="flex items-center space-x-2">
-                                            {errors.privacy && <span className="text-red-500 text-sm">You must agree to continue</span>}
                                             <input type="checkbox" id="privacy"
-                                                   {...register("privacy", { required: true })}
-                                                   className="appearance-none w-5 h-5 border border-gray-300 rounded-md checked:bg-yellow-500 checked:border-transparent focus:outline-none transition-all relative checked:before:content-['✔'] checked:before:text-white checked:before:absolute checked:before:-top-1 checked:before:left-[2px]"/>
-                                            <label htmlFor="privacy" className="font-heading font-medium text-sm lg:text-xl text-[#667085]">
-                                                You agree to our friendly <a href={"/privacy-policy"} className={"underline"}>privacy policy</a>
+                                                   {...register("privacy", {required: true})}
+                                                   className="appearance-none w-5 h-5 border border-gray-300 rounded-md checked:bg-yellow-500 checked:border-transparent focus:outline-none transition-all relative checked:before:content-['✔'] checked:before:text-white checked:before:absolute checked:before:-top-1 checked:before:left-[2px]"
+                                                   checked
+                                            />
+                                            <label htmlFor="privacy"
+                                                   className="font-heading font-medium text-sm lg:text-xl text-[#667085]">
+                                                You agree to our <a href={"/privacy-policy"}
+                                                                             className={"underline"}>privacy policy</a>
                                             </label>
-
                                         </div>
+                                        <div className="h-4">{errors.privacy && <span className="text-red-500 text-sm">You must agree to continue</span>}</div>
                                     </form>
                                 </div>
                             </Dialog.Panel>
