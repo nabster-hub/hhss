@@ -54,9 +54,7 @@ export const metadata = {
     openGraph: {
         title: "HHSS – Human Health Support System: Revolutionizing Healthcare with Decentralized AI",
         description: "Discover HHSS, the world’s first decentralized AI healthcare system designed to keep you youthful and disease-free. Take full control of your health with personalized insights, continuous monitoring, and global access to top medical professionals. Join the future of healthcare today",
-        // images: [
-        //     {}
-        // ],
+        images: ["/images/shubeeham.jpg"],
     },
     icons: {
         icon:[
