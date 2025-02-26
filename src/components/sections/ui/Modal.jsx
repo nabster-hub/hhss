@@ -75,11 +75,13 @@ export default function Modal({ isOpen, closeModal }) {
                                     </button>
                                     <h2 className="text-[32px] lg:text-5xl font-primary leading-10 lg:leading-[60px] font-semibold mb-6">{"Unlock the "}
                                         <br/> {"Future of Health"}</h2>
+                                    {!successMessage ? (
+                                        <>
                                     <p className="text-[#667085] text-lg lg:text-xl mb-12 font-heading">
                                         Get exclusive early access to the <strong className={"text-black"}>HHSS White
                                         Paper</strong>
                                     </p>
-                                    {!successMessage ? (
+
                                         <form onSubmit={handleSubmit(onSubmit)}>
                                             <label htmlFor={"name"}
                                                    className={"mb-1 text-lg lg:text-xl font-heading font-medium block"}>Name {errors.name &&
@@ -125,8 +127,9 @@ export default function Modal({ isOpen, closeModal }) {
                                             <div className="h-4">{errors.privacy && <span
                                                 className="text-red-500 text-sm">You must agree to continue</span>}</div>
                                         </form>
+                                        </>
                                     ) : (
-                                        <p className="text-green-500 text-xl font-bold">{successMessage}</p>
+                                        <p className="text-green-500 text-xl font-bold">{"You're among the first to receive the white paper."} <br /> {"Stay tuned!"}</p>
                                     )}
 
                                 </div>
